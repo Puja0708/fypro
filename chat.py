@@ -29,14 +29,14 @@ class Chat(LineReceiver):
     def connectionMade(self):
         self.sendLine("What's your name?")
         #p = p + 1
-        print len(self.users)
+        print len(self.users)+1
 
 
     def connectionLost(self, reason):
         if self.name in self.users:
             del self.users[self.name]
             #p = p - 1
-            len(self.users)
+            print len(self.users)
 
     def lineReceived(self, line):
         if self.state == "GETNAME":
